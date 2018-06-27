@@ -50,7 +50,7 @@ module.exports = {
       allowNull: true,
     },
     check_items: {
-      collection: 'checkItem',
+      collection: 'CheckItem',
       via: 'task',
     },
     tags: {

@@ -26,6 +26,13 @@ module.exports.bootstrap = async function(done) {
   //   // etc.
   // ]);
   // ```
+  if (await User.count() > 0) {
+    return done();
+  }
+  
+  await User.createEach([
+    { name: 'yxp', phone: '15056924713', },
+  ]);
 
   // Don't forget to trigger `done()` when this bootstrap function's logic is finished.
   // (otherwise your server will never lift, since it's waiting on the bootstrap)

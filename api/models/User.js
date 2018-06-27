@@ -33,6 +33,10 @@ module.exports = {
     },
     phone: {
       type: 'string',
+      unique: true,
+      custom: function (value) {
+        return /^1\d{10}$/.test(value);
+      },
     },
     password: {
       type: 'string',
@@ -41,6 +45,10 @@ module.exports = {
     avatar: {
       type: 'string',
     },
+  },
+
+  customToJSON() {
+    return _.omit(this, ['password', 'updated_at', 'created_at']);
   },
 
 };
